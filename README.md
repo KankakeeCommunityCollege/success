@@ -1,8 +1,8 @@
-# KCC Startup Template
+# Success
 
 #### Jekyll + Webpack + Babel + Gulp + Sass + Autoprefixer + imagemin + BrowserSync + ...
 
-***A startup repo for creating new websites in the KCC website redesign project***
+>***repository for the new `success.kcc.edu` project.***
 
 ---
 
