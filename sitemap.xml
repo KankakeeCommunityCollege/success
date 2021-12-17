@@ -1,43 +1,30 @@
+---
+layout: null
+---
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+    {%- for page in site.pages -%}
+    {% unless page.url contains '.xml' or page.url contains '.txt' %}
     <url>
-        
-        <loc>success.kcc.edu/</loc>
-    
-        
-        <lastmod>2020-02-06T16:09:42.225Z</lastmod>
-    
+        <loc>{{ site.public-url }}{{ page.url | uri_escape }}</loc>
+        <lastmod>{% if page.last-mod-time %}{{ page.last-mod-time | date: '%Y-%m-%dT%H:%M:%S.%LZ' }}{% else %}{{ 'today' | date: '%Y-%m-%dT%H:%M:%S.%LZ' }}{% endif %}</lastmod>
     </url>
+    {%- endunless -%}
+    {%- endfor -%}
+    {% if site.collections.posts.output != false %}
+    {% for post in site.posts %}
     <url>
-        
-        <loc>success.kcc.edu/new-career/</loc>
-    
-        
-        <lastmod>2020-02-06T16:09:42.225Z</lastmod>
-    
+        <loc>{{ site.public-url }}{{ page.url | uri_escape }}</loc>
+        <lastmod>{% if page.last-mod-time %}{{ page.last-mod-time | date: '%Y-%m-%dT%H:%M:%S.%LZ' }}{% else %}{{ 'today' | date: '%Y-%m-%dT%H:%M:%S.%LZ' }}{% endif %}</lastmod>
     </url>
+    {%- endfor -%}
+    {%- endif -%}
+    {%- for file in site.static_files -%}
+    {% if file.extname == '.pdf' %}
     <url>
-        
-        <loc>success.kcc.edu/request-info/</loc>
-    
-        
-        <lastmod>2020-02-06T16:09:42.226Z</lastmod>
-    
+        <loc>{{ site.public-url }}{{ file.path | uri_escape | replace: '&', '%26' }}</loc>
+        <lastmod>{{ file.modified_time | date: '%Y-%m-%dT%H:%M:%S.%LZ' }}</lastmod>
     </url>
-    <url>
-        
-        <loc>success.kcc.edu/search/</loc>
-    
-        
-        <lastmod>2020-02-06T16:09:42.226Z</lastmod>
-    
-    </url>
-    <url>
-        
-        <loc>success.kcc.edu/thank-you/</loc>
-    
-        
-        <lastmod>2020-02-06T16:09:42.226Z</lastmod>
-    
-    </url>
+    {%- endif -%}
+    {% endfor %}
 </urlset>

@@ -1,14 +1,13 @@
+const LAZY_IMAGE_LIST = document.querySelectorAll('img[data-src]');
 // Lazy load images
 // ex. <img data-src="/path/to/image.jpg" alt="">
 function lazyLoad() {
-  [].forEach.call(document.querySelectorAll('img[data-src]'), function(img) {
-    img.setAttribute('src', img.getAttribute('data-src'));
-    img.onload = function() {
+  [...LAZY_IMAGE_LIST].forEach((img) => {
+    img.src = img.dataset.src;
+    img.addEventListener('load', () => {
       img.removeAttribute('data-src');
-    };
+    });
   });
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-  lazyLoad();
-});
+export default lazyLoad;
