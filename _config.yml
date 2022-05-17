@@ -33,21 +33,8 @@ custom_site_styling: true
 #    link_href: 'reference/cloudcannon'
 #
 collections:
-  posts:
-    output: false
-    _hide_content: true
   contacts:
     output: false
-defaults:
-- scope:
-    path: ''
-    type: posts
-  values:
-    layout: post
-    title: ''
-    permalink: /:categories/:title/
-    baseurl: ../../../
-    categories: news
 permalink: pretty
 email: your-email@domain.com
 description: > # this means to ignore newlines until "baseurl:"
