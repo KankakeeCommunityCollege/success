@@ -5,7 +5,7 @@ theme: "landing-page-gem"
 contact_phone: 815-802-8500 ## Uncomment to override default phone no. of 815-802-8500
 port: 3000
 google-tag_key: 'GTM-PZNXZTN'
-custom_site_js: true
+custom_site_js: false
 custom_site_styling: true
 #translate: true ## Uncomment to activate Google Translate Powers!!
 #nav_links:
