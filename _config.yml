@@ -1,6 +1,8 @@
 title: "Kankakee Community College"
 site_name: Success
 public-url: "https://success.kcc.edu"
+url: "https://success.kcc.edu"
+canonical_baseurl: "https://success.kcc.edu"
 theme: "landing-page-gem"
 contact_phone: 815-802-8500 ## Uncomment to override default phone no. of 815-802-8500
 port: 3000
