@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
       <div class="col text-center">
-        <h5 class="text-center benefits__typography--h5  benefits__typography--h5--mb">Why Choose KCC?</h5>
+        <h5 class="text-center benefits__typography--h5  benefits__typography--h5--mb">{{ page.icon_section_heading }}</h5>
       </div>
     </div>
     <div class="row">
@@ -20,14 +20,18 @@
           {% include svg/love.html %}
         </div>
         <h6 class="benefits__typography--h6 text-center editable">Love What You Do</h6>
-        <p class="text-center typography__larger-p">KCC has degree & certificate <strong>options to fit your interests</strong>. You can transfer after KCC to complete a bachelor's degree, or enter the&nbsp;workforce.</p>
+        <div class="editable">
+          <p class="text-center typography__larger-p">KCC has degree & certificate <strong>options to fit your interests</strong>. You can transfer after KCC to complete a bachelor's degree, or enter the&nbsp;workforce.</p>
+        </div>
       </div>
       <div class="col-12 col-md-4">
         <div class="text-center">
           {% include svg/goals.html %}
         </div>
         <h6 class="benefits__typography--h6 text-center editable">Reach Your Goals</h6>
-        <p class="text-center typography__larger-p">We care about your progress and want you to succeed. KCC's small class sizes, faculty and support services <strong>help you stay on track to&nbsp;graduate.</strong></p>
+        <div class="editable">
+          <p class="text-center typography__larger-p">We care about your progress and want you to succeed. KCC's small class sizes, faculty and support services <strong>help you stay on track to&nbsp;graduate.</strong></p>
+        </div>
       </div>
     </div>
   </div>
@@ -37,33 +41,10 @@
   <div class="container">
     <div class="row">
       <div class="col">
-        <h5 class="benefits__typography--h5 benefits__testimonials--mb text-center">What Our Students Say</h5>
+        <h5 class="benefits__typography--h5 benefits__testimonials--mb text-center">{{ page.testimonials_heading }}</h5>
       </div>
     </div>
-    {% for person in page.testimonials %}
-    {% assign mod = forloop.index | modulo: 2 %}
-    {% if mod == 1 %}
-    <div class="row">
-      <div class="col-12 col-md-4 text-center my-auto">
-        <img src="{{ page.baseurl }}assets/img/placeholder_square.jpg" data-src="{{ page.baseurl }}{{ person.portrait }}" height="200" width="200" class="benefits__borders--circle-img img-fluid rounded-circle" alt="{{ preson.name_details }}">
-      </div>
-      <div class="col-12 col-md-8 align-self-center">
-        <p class="benefits__typography--student-p"><em>“{{ person.quote }}”</em></p>
-        <span class="benefits__typography--img-cap">-&nbsp{{ person.name_details }}</span>
-      </div>
-    </div>
-    {% else %}
-    <div class="row benefits__row--pad">
-      <div class="col-12 col-md-8 order-2 order-md-1 align-self-center">
-        <p class="benefits__typography--student-p"><em>“{{ person.quote }}”</em></p>
-        <span class="benefits__typography--img-cap">-&nbsp;{{ person.name_details }}</span>
-      </div>
-      <div class="col-12 col-md-4 text-center my-auto order-1 order-md-2">
-        <img src="{{ page.baseurl }}assets/img/placeholder_square.jpg" data-src="{{ page.baseurl }}{{ person.portrait }}" height="200" width="200" class="benefits__borders--circle-img img-fluid rounded-circle" alt="{{ person.portrait }}">
-      </div>
-    </div>
-    {% endif %}
-    {% endfor %}
+    {% include testimonials-template.html %}
   </div>
 </section>
 
